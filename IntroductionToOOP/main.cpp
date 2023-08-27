@@ -1,6 +1,7 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
 
+#define DISTANCE
 #define tab "\t"
 //#define STRUCT_POINT
 
@@ -65,8 +66,8 @@ public:
 void main() {
 	setlocale(LC_ALL, "");
 #ifdef STRUCT_POINT
-	int a;   // Объявление переменной 'a' типа int 
-	Point A; // Создание переменной 'A' типа Point (Создание объекта А структуры Point)
+	int a;   // РћР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ 'a' С‚РёРїР° int 
+	Point A; // РЎРѕР·РґР°РЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ 'A' С‚РёРїР° Point (РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° Рђ СЃС‚СЂСѓРєС‚СѓСЂС‹ Point)
 	A.x = 2;
 	A.y = 3;
 	cout << A.x << tab << A.y << endl;
@@ -74,18 +75,11 @@ void main() {
 	cout << pA->x << tab << pA->y << endl;
 #endif // STRUCT_POINT
 
-	//Point A;        //Default Constructor
-	////A.set_x(2);
-	////A.set_y(3);
-	////cout << A.get_x() << tab << A.get_y() << endl;
-	//A.print();
-	//
-	//Point B = 5;   //Single-argument constructor 
-	//Point C(2, 3);
-	////C.print;
-
+#ifdef DISTANCE
 	Point Dis(20,30);
 	Dis.print();
 	cout << Dis.distance(Dis) << endl;	
+#endif // DISTANCE
+
 	
 }
