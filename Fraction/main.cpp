@@ -104,11 +104,11 @@ public:
 
 	Fraction operator--(int)	
 	{
-		Fraction old = *this;
+		Fraction temp = *this;
 		integer--;
 		numerator--;
 		denominator--;
-		return old;
+		return temp;
 	}
 	
 	Fraction operator+=(const Fraction& rvalue) {
@@ -129,8 +129,7 @@ public:
 	//print
 
 	void print()const {
-		cout << integer << " " << numerator << "/" << denominator;
-	
+		cout << integer << " " << numerator << "/" << denominator << endl;
 	}
 };
 
