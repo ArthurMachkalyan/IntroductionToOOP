@@ -173,9 +173,8 @@ void main() {
 	Fraction a(2, 4);
 	Fraction b(5, 7);
 	a -= b;
+	b += a;
 	a.print();
-	
+	b.print();
 
-
-	
 }
