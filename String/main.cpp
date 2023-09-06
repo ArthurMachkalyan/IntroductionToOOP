@@ -2,7 +2,8 @@
 using namespace std;
 
 #define delimetr "\n----------------------------------\n"
-
+class String;
+String operator+(const String& left, const String& right);
 class String {
 	int size;     // size string 
 	char* str;  // string adress in dynamic memory
@@ -63,6 +64,15 @@ public:
 		return *this;
 	}
 
+	String& operator=(String&& other) {
+		if (this == &other)return *this;
+		this->size = other.size;
+		this->str = other.str;
+		other.size = 0;
+		other.str = nullptr;
+		cout << "MoveAssignment:\t" << this << endl;
+	}
+
 	String(String&& other) {
 		this->size = other.size;
 		this->str = other.str;
@@ -90,6 +100,11 @@ public:
 	char& operator[] (int i) {
 		return str[i];
 	}
+
+	String& operator+=(const String& other) {
+		*this = *this + other;
+		return *this;
+	}
 };
 
 String operator+(const String& left, const String& right) {
@@ -110,7 +125,8 @@ std::ostream& operator<<(std::ostream& os, const String& obj) {
 }
 
 //#define CONSTRUCTORS_CHECK
-#define OPERATOR_PLUS_CHECK
+//#define OPERATOR_PLUS_CHECK
+#define OPERATOR_PLUS_EQUAL_CHECK
 
 void main() {
 	setlocale(LC_ALL, "");
@@ -136,6 +152,13 @@ void main() {
 	cout << delimetr;
 	cout << str3 << endl;
 #endif // OPERATOR_PLUS_CHECK
+
+#ifdef OPERATOR_PLUS_EQUAL_CHECK
+	String str1 = "Hello";
+	String str2 = "World";
+	str1 += str2;
+	cout << str1 << endl;
+#endif // OPERATOR_PLUS_EQUAL_CHECK
 
  
 }
