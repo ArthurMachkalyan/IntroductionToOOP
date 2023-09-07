@@ -41,13 +41,10 @@ public:
 		cout << "Constructor:\t" << this << endl;
 	}
 
-	String(const String& other) :size(other.size), str(new char[size] {}) {
+	String(const String& other) :String(other.str) {
 		/*this->size = other.size;
 		this->str = other.str;*/
-		for (int i = 0; i < size; i++)
-		{
-			this->str[i] = other.str[i];
-		}
+		/*for (int i = 0; i < size; i++)this->str[i] = other.str[i];*/
 		cout << "CopyConstructor:" << this << endl;
 	}
 
