@@ -73,9 +73,9 @@ public:
 		cout << "MoveAssignment:\t" << this << endl;
 	}
 
-	String(String&& other) {
-		this->size = other.size;
-		this->str = other.str;
+	String(String&& other):size(other.size), str(other.str) {
+		/*this->size = other.size;
+		this->str = other.str;*/
 		other.size = 0;
 		other.str = nullptr;
 		cout << "MoveConstructor:" << this << endl;
