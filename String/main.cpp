@@ -102,8 +102,7 @@ public:
 	}
 
 	String& operator+=(const String& other) {
-		*this = *this + other;
-		return *this;
+		return *this = *this + other;
 	}
 };
 
