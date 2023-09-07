@@ -31,7 +31,7 @@ public:
 		cout << "DefaultConstructor:" << this << endl;
 	}
 
-	String(const char* str) :size(strlen(str) + 1), str(new char[size] {}) {
+	String(const char* str) :String(strlen(str) + 1) {
 		/*this->size = strlen(str) + 1;
 		this->str = new char[size] {};*/
 		for (int i = 0; str[i]; i++)
