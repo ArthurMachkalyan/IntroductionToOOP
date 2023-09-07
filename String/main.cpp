@@ -25,15 +25,15 @@ public:
 
 
 	//           Constructors:
-	explicit String(int size = 80) {
-		this->size = size;
-		this->str = new char[size] {};
+	explicit String(int size = 80) :size(size), str(new char[size] {}) {
+		/*this->size = size;
+		this->str = new char[size] {};*/
 		cout << "DefaultConstructor:" << this << endl;
 	}
 
-	String(const char* str) {
-		this->size = strlen(str) + 1;
-		this->str = new char[size] {};
+	String(const char* str) :size(strlen(str) + 1), str(new char[size] {}) {
+		/*this->size = strlen(str) + 1;
+		this->str = new char[size] {};*/
 		for (int i = 0; str[i]; i++)
 		{
 			this->str[i] = str[i];
@@ -41,9 +41,9 @@ public:
 		cout << "Constructor:\t" << this << endl;
 	}
 
-	String(const String& other) {
-		this->size = other.size;
-		this->str = other.str;
+	String(const String& other) :size(other.size), str(new char[size] {}) {
+		/*this->size = other.size;
+		this->str = other.str;*/
 		for (int i = 0; i < size; i++)
 		{
 			this->str[i] = other.str[i];
@@ -125,7 +125,7 @@ std::ostream& operator<<(std::ostream& os, const String& obj) {
 
 //#define CONSTRUCTORS_CHECK
 //#define OPERATOR_PLUS_CHECK
-#define OPERATOR_PLUS_EQUAL_CHECK
+//#define OPERATOR_PLUS_EQUAL_CHECK
 
 void main() {
 	setlocale(LC_ALL, "");
@@ -159,5 +159,32 @@ void main() {
 	cout << str1 << endl;
 #endif // OPERATOR_PLUS_EQUAL_CHECK
 
- 
+	String str1; // Default tConstructor
+	str1.print();
+
+	String str2(5); // Single-Argument Constructor
+	str2.print();
+
+	String str3 = "Hello"; //Single-Argument Constructor
+	str3.print();
+
+	String str4(); // «десь не создаетс€ никакой объект, здесь объ€вл€етс€ функци€ 'str4'
+	               // котора€ ничего не принимает, возвращает объект класса String
+	//str4.print();
+
+	String str5{};  // явно вызываетс€ конструктор по умолчанию
+	str5.print();
+
+	String str6("World");
+	str6.print();
+
+	String str7{ "Compile" };
+	str7.print();
+
+	String str8 = str3; //Copy Constructor
+	str8.print();
+
+	String str9;
+	str9 = str6;
+	str9.print();
 }
